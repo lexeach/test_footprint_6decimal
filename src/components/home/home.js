@@ -86,7 +86,7 @@ const Dashboard = () => {
         .call();
       console.log("Accounts of zero is :", accounts[0]);
 
-      const convert_regfee = Number(web3.utils.fromWei(RegistrationFee, "ether")).toFixed(4);
+      const convert_regfee = Number((web3.utils.fromWei(RegistrationFee, "ether")) * (10**12)).toFixed(4);
       setRegistrationFee(convert_regfee);
       // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
       setPool1_price(
-        Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
+        Number((web3.utils.fromWei(pool1Price, "ether")) * (10 ** 12)).toFixed(18)
       );
       let texRates = await NEW_CBC_ROI.methods.taxRate().call();
       console.log("Tax Rate is setting : ", texRates);
@@ -323,6 +323,7 @@ const Dashboard = () => {
       let total = Number(all) + Number((all * taxRate) / 100);
       //let amount = web3.utils.toWei(total.toString(), "ether");
       let amount = web3.utils.toWei(total.toString(), "ether") / (10 ** 12);
+
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
       let isAllowance = await USDT_.methods

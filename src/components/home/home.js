@@ -123,9 +123,9 @@ const Dashboard = () => {
       );
       setRegisterCurrentUserId(registers.currentUserID);
       setRegisterLevelIncomeReceived(
-        Number(
+        Number((
           web3.utils.fromWei(registers.levelIncomeReceived, "ether")
-        ).toFixed(0)
+        ) * (10 ** 12)).toFixed(0)
       );
       setRegisterReferredUsers(registers.referredUsers);
 
@@ -173,7 +173,7 @@ const Dashboard = () => {
         ).toFixed(4)
       );
       setPool1IncomeBalance(
-        Number(web3.utils.fromWei(pool1userss.balanceIncome, "ether")).toFixed(
+        Number((web3.utils.fromWei(pool1userss.balanceIncome, "ether")) * (10 ** 12)).toFixed(
           4
         )
       );

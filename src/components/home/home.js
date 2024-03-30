@@ -99,7 +99,7 @@ const Dashboard = () => {
       let tokenPrices = await ICO_.methods.tokenPrice().call();
       let incomes = await NEW_CBC_ROI.methods.income(accounts[0]).call();
 
-      setIncome(Number(web3.utils.fromWei(incomes.income, "ether")).toFixed(4));
+      setIncome((Number(web3.utils.fromWei(incomes.income, "ether")) * (10 ** 12)).toFixed(4));
       setPlaner(incomes.planer);
 
       let registers = await NEW_CBC_ROI.methods.register(accounts[0]).call();
@@ -123,9 +123,9 @@ const Dashboard = () => {
       );
       setRegisterCurrentUserId(registers.currentUserID);
       setRegisterLevelIncomeReceived(
-        Number((
+        Number(
           web3.utils.fromWei(registers.levelIncomeReceived, "ether")
-        ) * (10 ** 12)).toFixed(0)
+        ).toFixed(0)
       );
       setRegisterReferredUsers(registers.referredUsers);
 
@@ -218,7 +218,7 @@ const Dashboard = () => {
         ).toFixed(4)
       );
       setPool2IncomeBalance(
-        Number(web3.utils.fromWei(pool2userss.balanceIncome, "ether")).toFixed(
+        Number((web3.utils.fromWei(pool2userss.balanceIncome, "ether")) * (10 ** 12)).toFixed(
           4
         )
       );
@@ -268,7 +268,7 @@ const Dashboard = () => {
         ).toFixed(4)
       );
       setPool3IncomeBalance(
-        Number(web3.utils.fromWei(pool3userss.balanceIncome, "ether")).toFixed(
+        Number((web3.utils.fromWei(pool3userss.balanceIncome, "ether")) * (10 ** 12)).toFixed(
           4
         )
       );

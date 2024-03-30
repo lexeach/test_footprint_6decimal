@@ -116,10 +116,10 @@ const Dashboard = () => {
       );
       setRegId(registers.id);
       setRegisterPrice(
-        Number((web3.utils.fromWei(registers.price, "ether"))  * (10 ** 12)).toFixed(4)
+        Number((web3.utils.fromWei(registers.price, "ether"))  * (10 ** 12)).toFixed(7)
       );
       setRegisterTokenPrice(
-        Number((web3.utils.fromWei(tokenPrices, "ether"))  * (10 ** 12)).toFixed(4)
+        Number((web3.utils.fromWei(tokenPrices, "ether"))  * (10 ** 12)).toFixed(7)
       );
       setRegisterCurrentUserId(registers.currentUserID);
       setRegisterLevelIncomeReceived(

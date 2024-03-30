@@ -322,7 +322,7 @@ const Dashboard = () => {
       let all = Number(pool1_price) + Number(registration_Free);
       let total = Number(all) + Number((all * taxRate) / 100);
       //let amount = web3.utils.toWei(total.toString(), "ether");
-      let amount = web3.utils.toWei(total.toString(), "ether");
+      let amount = web3.utils.toWei(total.toString(), "ether") / (10 ** 12);
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
       let isAllowance = await USDT_.methods

@@ -131,7 +131,7 @@ const Dashboard = () => {
 
       let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
       setPool1_price(
-        Number((web3.utils.fromWei(pool1Price, "ether")) * (10 ** 12)).toFixed(18)
+        Number((web3.utils.fromWei(pool1Price, "ether")) * (10 ** 12)).toFixed(4)
       );
       let texRates = await NEW_CBC_ROI.methods.taxRate().call();
       console.log("Tax Rate is setting : ", texRates);
